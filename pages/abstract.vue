@@ -30,6 +30,7 @@ export default {
     BreadCrumbs
   },
   fetch({ query, store }) {
+    // this is to store the query on page load, should be a better way
     store.commit('query/setQuery', query.q)
   }
 }

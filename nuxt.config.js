@@ -34,18 +34,16 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '@/plugins/auth.js',
     '@/plugins/element-ui.js',
-    '@/plugins/axios.js'
-    // { src: '~/plugins/localStorage.js', ssr: false }
+    '@/plugins/axios.js',
+    { src: '~/plugins/localStorage.js', ssr: false }
   ],
 
   /*
   ** Nuxt.js modules
   */
-  modules: [
-    '@nuxtjs/axios',
-    '@nuxtjs/proxy'
-  ],
+  modules: ['@nuxtjs/auth', '@nuxtjs/axios', '@nuxtjs/proxy'],
   /*
   ** Axios module configuration
   */
@@ -54,11 +52,22 @@ module.exports = {
   },
 
   /*
+  ** Auth module settings
+  */
+  auth: {
+    strategies: {
+      local: {
+        endpoints: {}
+      }
+    }
+  },
+
+  /*
   ** Axios proxy settings
   */
   proxy: {
     '/api/': {
-      target: 'https://jsonplaceholder.typicode.com',
+      target: 'https://devapi.adsabs.harvard.edu/v1',
       pathRewrite: {
         '^/api/': ''
       }

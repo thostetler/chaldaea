@@ -1,6 +1,6 @@
 <template lang="pug">
   div
-    div.ui.divided.items(v-for="item in results")
+    div.ui.divided.items(v-for="(item, index) in results")
       div.item
         div.content
           a.header {{ item.title }}
@@ -9,8 +9,8 @@
           div.description
             p {{ item.abstract }}
           div.extra
-            div.ui.info.tiny.icon.button
-              i.plus.icon
+            div.ui.info.tiny.icon.button(@click="selected(index)")
+              i.icon(:class="{ plus: !item.selected, checkmark: item.selected }")
             div.ui.primary.tiny.button Add to Library
               i.right.book.icon
 </template>
@@ -19,8 +19,11 @@
 import { mapState } from 'vuex'
 export default {
   name: 'SearchResults',
-  computed: {
-    ...mapState(['results'])
+  computed: mapState(['results']),
+  methods: {
+    selected(index) {
+      this.$store.commit('TOGGLE_SELECT_RESULT', index)
+    }
   }
 }
 </script>

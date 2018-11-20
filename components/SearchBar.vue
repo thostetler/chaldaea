@@ -13,12 +13,21 @@
       )
       i.search.icon
       button(role="submit").ui.primary.button Search
+    div
+      num-results
+      num-selected
 </template>
 
 <script>
+import NumResults from './NumResults'
+import NumSelected from './NumSelected'
 import { mapState } from 'vuex'
 export default {
   name: 'SearchBar',
+  components: {
+    NumResults,
+    NumSelected
+  },
   data() {
     return {
       text: this.q,
