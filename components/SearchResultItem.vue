@@ -1,6 +1,6 @@
 <template lang="pug">
   div
-    div.ui.divided.items(v-for="item in items")
+    div.ui.divided.items(v-for="item in results")
       div.item
         div.content
           a.header {{ item.title }}
@@ -16,139 +16,11 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   name: 'SearchResults',
-  data() {
-    return {
-      items: [
-        {
-          title: 'SDSS-IV MaNGA: pattern speeds of barred galaxies',
-          authors: 'Guo, Rui; Mao, Shude; Athanassoula, E.; Li, Hongyu',
-          abstract: `We study a novel interacting dark energy - dark
-          matter scenario where the anisotropic stress of the large-scale
-          inhomogeneities is considered...`
-        },
-        {
-          title: 'SDSS-IV MaNGA: pattern speeds of barred galaxies',
-          authors: 'Guo, Rui; Mao, Shude; Athanassoula, E.; Li, Hongyu',
-          abstract: `We study a novel interacting dark energy - dark
-          matter scenario where the anisotropic stress of the large-scale
-          inhomogeneities is considered...`
-        },
-        {
-          title: 'SDSS-IV MaNGA: pattern speeds of barred galaxies',
-          authors: 'Guo, Rui; Mao, Shude; Athanassoula, E.; Li, Hongyu',
-          abstract: `We study a novel interacting dark energy - dark
-          matter scenario where the anisotropic stress of the large-scale
-          inhomogeneities is considered...`
-        },
-        {
-          title: 'SDSS-IV MaNGA: pattern speeds of barred galaxies',
-          authors: 'Guo, Rui; Mao, Shude; Athanassoula, E.; Li, Hongyu',
-          abstract: `We study a novel interacting dark energy - dark
-          matter scenario where the anisotropic stress of the large-scale
-          inhomogeneities is considered...`
-        },
-        {
-          title: 'SDSS-IV MaNGA: pattern speeds of barred galaxies',
-          authors: 'Guo, Rui; Mao, Shude; Athanassoula, E.; Li, Hongyu',
-          abstract: `We study a novel interacting dark energy - dark
-          matter scenario where the anisotropic stress of the large-scale
-          inhomogeneities is considered...`
-        },
-        {
-          title: 'SDSS-IV MaNGA: pattern speeds of barred galaxies',
-          authors: 'Guo, Rui; Mao, Shude; Athanassoula, E.; Li, Hongyu',
-          abstract: `We study a novel interacting dark energy - dark
-          matter scenario where the anisotropic stress of the large-scale
-          inhomogeneities is considered...`
-        },
-        {
-          title: 'SDSS-IV MaNGA: pattern speeds of barred galaxies',
-          authors: 'Guo, Rui; Mao, Shude; Athanassoula, E.; Li, Hongyu',
-          abstract: `We study a novel interacting dark energy - dark
-          matter scenario where the anisotropic stress of the large-scale
-          inhomogeneities is considered...`
-        },
-        {
-          title: 'SDSS-IV MaNGA: pattern speeds of barred galaxies',
-          authors: 'Guo, Rui; Mao, Shude; Athanassoula, E.; Li, Hongyu',
-          abstract: `We study a novel interacting dark energy - dark
-          matter scenario where the anisotropic stress of the large-scale
-          inhomogeneities is considered...`
-        },
-        {
-          title: 'SDSS-IV MaNGA: pattern speeds of barred galaxies',
-          authors: 'Guo, Rui; Mao, Shude; Athanassoula, E.; Li, Hongyu',
-          abstract: `We study a novel interacting dark energy - dark
-          matter scenario where the anisotropic stress of the large-scale
-          inhomogeneities is considered...`
-        },
-        {
-          title: 'SDSS-IV MaNGA: pattern speeds of barred galaxies',
-          authors: 'Guo, Rui; Mao, Shude; Athanassoula, E.; Li, Hongyu',
-          abstract: `We study a novel interacting dark energy - dark
-          matter scenario where the anisotropic stress of the large-scale
-          inhomogeneities is considered...`
-        },
-        {
-          title: 'SDSS-IV MaNGA: pattern speeds of barred galaxies',
-          authors: 'Guo, Rui; Mao, Shude; Athanassoula, E.; Li, Hongyu',
-          abstract: `We study a novel interacting dark energy - dark
-          matter scenario where the anisotropic stress of the large-scale
-          inhomogeneities is considered...`
-        },
-        {
-          title: 'SDSS-IV MaNGA: pattern speeds of barred galaxies',
-          authors: 'Guo, Rui; Mao, Shude; Athanassoula, E.; Li, Hongyu',
-          abstract: `We study a novel interacting dark energy - dark
-          matter scenario where the anisotropic stress of the large-scale
-          inhomogeneities is considered...`
-        },
-        {
-          title: 'SDSS-IV MaNGA: pattern speeds of barred galaxies',
-          authors: 'Guo, Rui; Mao, Shude; Athanassoula, E.; Li, Hongyu',
-          abstract: `We study a novel interacting dark energy - dark
-          matter scenario where the anisotropic stress of the large-scale
-          inhomogeneities is considered...`
-        },
-        {
-          title: 'SDSS-IV MaNGA: pattern speeds of barred galaxies',
-          authors: 'Guo, Rui; Mao, Shude; Athanassoula, E.; Li, Hongyu',
-          abstract: `We study a novel interacting dark energy - dark
-          matter scenario where the anisotropic stress of the large-scale
-          inhomogeneities is considered...`
-        },
-        {
-          title: 'SDSS-IV MaNGA: pattern speeds of barred galaxies',
-          authors: 'Guo, Rui; Mao, Shude; Athanassoula, E.; Li, Hongyu',
-          abstract: `We study a novel interacting dark energy - dark
-          matter scenario where the anisotropic stress of the large-scale
-          inhomogeneities is considered...`
-        },
-        {
-          title: 'SDSS-IV MaNGA: pattern speeds of barred galaxies',
-          authors: 'Guo, Rui; Mao, Shude; Athanassoula, E.; Li, Hongyu',
-          abstract: `We study a novel interacting dark energy - dark
-          matter scenario where the anisotropic stress of the large-scale
-          inhomogeneities is considered...`
-        },
-        {
-          title: 'SDSS-IV MaNGA: pattern speeds of barred galaxies',
-          authors: 'Guo, Rui; Mao, Shude; Athanassoula, E.; Li, Hongyu',
-          abstract: `We study a novel interacting dark energy - dark
-          matter scenario where the anisotropic stress of the large-scale
-          inhomogeneities is considered...`
-        },
-        {
-          title: 'SDSS-IV MaNGA: pattern speeds of barred galaxies',
-          authors: 'Guo, Rui; Mao, Shude; Athanassoula, E.; Li, Hongyu',
-          abstract: `We study a novel interacting dark energy - dark
-          matter scenario where the anisotropic stress of the large-scale
-          inhomogeneities is considered...`
-        }
-      ]
-    }
+  computed: {
+    ...mapState(['results'])
   }
 }
 </script>

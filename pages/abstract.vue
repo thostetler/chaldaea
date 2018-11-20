@@ -1,20 +1,20 @@
 <template lang="pug">
-  div.ui.container.fluid
-    div.ui.divider.hidden
-    div.ui.grid.stackable
-      div.four.wide.column
-      div.ten.wide.column
+  .ui.container.fluid
+    .ui.divider.hidden
+    .ui.grid.stackable
+      .four.wide.column
+      .ten.wide.column
         search-bar
-      div.two.wide.column
-    div.ui.divider
-    div.ui.grid.stackable
-      div.four.wide.column
-        div.ui.segment.raised
+      .two.wide.column
+    .ui.divider
+    .ui.grid.stackable
+      .four.wide.column
+        .ui.segment.raised
           side-bar
-      div.twelve.wide.column
-        div.ui.segment.attached
+      .twelve.wide.column
+        .ui.segment.attached
           search-results
-    div.ui.divider.hidden
+    .ui.divider.hidden
 </template>
 
 <script>
@@ -31,8 +31,7 @@ export default {
   },
   fetch({ query, store }) {
     store.commit('query/setQuery', query.q)
-  },
-  watchQuery: ['page']
+  }
 }
 </script>
 

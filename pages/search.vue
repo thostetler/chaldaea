@@ -1,14 +1,14 @@
 <template lang="pug">
-  div.ui.container.fluid
-    div.ui.divider
-    div.ui.grid.stackable
-      div.four.wide.column
-        div.ui.segment.raised
+  .ui.container.fluid
+    .ui.divider
+    .ui.grid.stackable
+      .four.wide.column
+        .ui.segment.raised(:class="{ loading: inProgress, disabled: inProgress }")
           side-bar
-      div.twelve.wide.column
-        div.ui.segment.attached
+      .twelve.wide.column
+        .ui.segment.attached(:class="{ loading: inProgress, disabled: inProgress }")
           search-results
-    div.ui.divider.hidden
+    .ui.divider.hidden
 </template>
 
 <script>
@@ -16,6 +16,7 @@ import BreadCrumbs from '../components/BreadCrumbs.vue'
 import SideBar from '../components/SideBar.vue'
 import SearchResults from '../components/SearchResults.vue'
 import SearchBar from '../components/SearchBar.vue'
+import { mapState } from 'vuex'
 export default {
   components: {
     SideBar,
@@ -23,10 +24,9 @@ export default {
     SearchResults,
     BreadCrumbs
   },
-  fetch({ query, store }) {
-    store.commit('query/setQuery', query.q)
-  },
-  watchQuery: ['page']
+  computed: {
+    ...mapState(['inProgress'])
+  }
 }
 </script>
 

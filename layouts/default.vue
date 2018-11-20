@@ -1,14 +1,14 @@
 <template lang="pug">
-  div.pusher
+  .pusher
     app-header
     main.ui.container.fluid
-      div.ui.container
-        div.ui.divider.hidden
-        div.ui.grid.stackable
-          div.four.wide.column
-          div.ten.wide.column
+      .ui.container
+        .ui.divider.hidden
+        .ui.grid.stackable
+          .four.wide.column
+          .ten.wide.column
             search-bar
-          div.two.wide.column
+          .two.wide.column
       nuxt
     app-footer
 </template>

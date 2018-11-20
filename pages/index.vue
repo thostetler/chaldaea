@@ -1,14 +1,14 @@
 <template lang="pug">
-  div.ui.container.fluid
-    div.ui.divider
-    div.ui.grid.stackable
-      div.four.wide.column
-        div.ui.segment.raised
+  .ui.container.fluid
+    .ui.divider
+    .ui.grid.stackable
+      .four.wide.column
+        .ui.segment.raised
           side-bar
-      div.twelve.wide.column
-        div.ui.segment.attached
+      .twelve.wide.column
+        .ui.segment.attached
           search-results
-    div.ui.divider.hidden
+    .ui.divider.hidden
 </template>
 
 <script>

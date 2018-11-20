@@ -34,7 +34,8 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '@/plugins/element-ui.js'
+    '@/plugins/element-ui.js',
+    '@/plugins/axios.js'
     // { src: '~/plugins/localStorage.js', ssr: false }
   ],
 
@@ -42,14 +43,26 @@ module.exports = {
   ** Nuxt.js modules
   */
   modules: [
-    // Doc: https://github.com/nuxt-community/axios-module#usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/proxy'
   ],
   /*
   ** Axios module configuration
   */
   axios: {
-    // See https://github.com/nuxt-community/axios-module#options
+    proxy: true
+  },
+
+  /*
+  ** Axios proxy settings
+  */
+  proxy: {
+    '/api/': {
+      target: 'https://jsonplaceholder.typicode.com',
+      pathRewrite: {
+        '^/api/': ''
+      }
+    }
   },
 
   /*
